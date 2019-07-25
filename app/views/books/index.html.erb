@@ -3,8 +3,11 @@
 </header>
   <h4>Title</h4>
   <% @books.each do |book| %>
-  <%= book.title %>
-  <%= book.body %>
+    <%= book.title %>
+    <%= book.body %>
+    <%= link_to "show", book_path(book) %>
+    <%= link_to "edit", edit_book_path(book) %>
+    <%= link_to "delete", book_path(book), method: :delete %>
   <% end %>
 
  <h1>New book</h1>
@@ -14,5 +17,5 @@
   <h4>Body</h4>
   <%= f.text_area :body %>
   <%= f.submit 'Create book' %>
-  
+
 <% end %>
